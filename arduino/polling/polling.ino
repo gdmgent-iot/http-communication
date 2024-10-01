@@ -11,13 +11,13 @@ char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
 // server settings
-char serverAddres[] = "";
+char serverAddres[] = "172.20.10.5";
 int port = 3001;
 
 // wifi settings
 int status = WL_IDLE_STATUS;
 WiFiClient wifi;
-// HttpClient client = HttpClient(wifi, serverAddress, port);
+HttpClient client = HttpClient(wifi, serverAddress, port);
 
 
 void setup() {
@@ -55,5 +55,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  
 }
