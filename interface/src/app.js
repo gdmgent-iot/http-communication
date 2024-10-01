@@ -14,7 +14,7 @@ app.use(express.static("public"));
 
 /**** interface routes ****/
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Zijn we er al? Ist nog ver?");
 });
 
 /**** api routes ****/

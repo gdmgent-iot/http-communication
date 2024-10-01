@@ -11,7 +11,7 @@ char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
 // server settings
-char serverAddres[] = "172.20.10.5";
+char serverAddress[] = "172.20.10.5";
 int port = 3001;
 
 // wifi settings
@@ -55,5 +55,17 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
+  client.get("/");
+
+  int statusCode = client.responseStatusCode();
+  String response = client.responseBody();
+
+  Serial.print("Status code: ");
+  Serial.println(statusCode);
+  Serial.print("Response: ");
+  Serial.println(response);
+
+  // DeserializationError error = 
+
+  delay(5000);  
 }
