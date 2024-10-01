@@ -21,8 +21,36 @@ WiFiClient wifi;
 
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
+
+  // do nothing, if no serial connection
+  while(!Serial) { 
+    ;
+  }
+
+  if(WiFi.status() == WL_NO_MODULE) {
+    Serial.println("Aj.... Geen wifi module");
+    while(true);
+  }
+
+  // try to make connection
+  Serial.print("Verbinden met netwerk");
+  Serial.println(ssid);
+
+  // Herhaal totdat de verbinding is gemaakt
+  while (status != WL_CONNECTED) {
+    // Probeer verbinding te maken met WiFi netwerk
+    status = WiFi.begin(ssid, pass);
+
+    // Wacht 10 seconden voordat je opnieuw probeert
+    delay(1000);
+  }
+
+  // Als verbinding is gelukt
+  Serial.println("Succesvol verbonden met het WiFi netwerk!");
+  Serial.print("IP-adres: ");
+  Serial.println(WiFi.localIP());  // Print het IP-adres dat het board heeft gekregen
+
 }
 
 void loop() {
